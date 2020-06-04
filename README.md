@@ -74,22 +74,18 @@ We are using omdbAPI
 User model
  
 ```
-Email: String
+firstName: String
+lastName: String
+email: String
 password: String
 ```
 
-Model model
+List model
 
 ```
 Title: String
 Year: String
-Rated: String
 Released: String
-Genre: String
-Director: String
-Writer: String
-Actors: String
-Plot: String
 Language: String
 Country: String
 Awards: String
@@ -100,21 +96,19 @@ Type: String
 
 ## Links
 
+### Prototype
+
+[Adobe XD Link](https://xd.adobe.com/view/480bb68c-1e2e-4118-628f-fcc7fe2ba42b-3e3a/)
+
 ### Trello
 
-[Link to your trello board](https://trello.com) or picture of your physical board
+[Trello board Link](https://trello.com/b/0f0V7VnP/todo-app) 
 
-### Git
-
-The url to your repository and to your deployed project
-
-[Repository Link](http://github.com)
+### Heroku
 
 [Deploy Link](http://heroku.com)
 
 ### Slides
-
-The url to your presentation slides
 
 [Slides Link](http://slides.com)
 
