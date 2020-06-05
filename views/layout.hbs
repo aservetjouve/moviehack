@@ -4,11 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moviehack</title>
+    <link rel="stylesheet" href="/stylesheets/normalize.css">
     <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <body>
     <header>
-        <img src="https://assets.codepen.io/3166242/logoDarkMode.png" />
+        <a href="{{movieLogo}}"><img src="https://assets.codepen.io/3166242/logoDarkMode.png" /></a>
+        <nav>
+            {{#if landingNav}}
+                <a href="/signin" class="signin-button">Sign In</a>
+                <a href="/signup" class="signup-button">Sign Up</a>
+            {{/if}}
+            {{#if signLabel}}
+                <a href="{{signLabel.href}}">{{signLabel.message}}</a>
+            {{/if}}
+            {{!-- {{#if homeNav}}
+            {{/if}} --}}
+        </nav>
     </header>
     {{{body}}}
 </body>

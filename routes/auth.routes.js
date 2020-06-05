@@ -8,7 +8,7 @@ const UserModel = require('../models/User.model');
 
 
 router.get('/signup', (req, res) => {
-  res.render('auth/signup.hbs');
+  res.render('auth/signup.hbs', {signLabel : {message : 'Sign In', href : "/signin"},  movieLogo: "/"});
 });
 
 router.post('/signup', (req, res) => {
@@ -71,7 +71,7 @@ router.post('/signup', (req, res) => {
 
 
 router.get('/signin', (req, res) => {
-  res.render('auth/signin.hbs');
+  res.render('auth/signin.hbs', {signLabel : {message : 'Sign Up', href : "/signup"},  movieLogo: "/"});
 });
 
 router.post('/signin', (req, res) => {
@@ -126,7 +126,7 @@ router.post('/signin', (req, res) => {
 });
 
 router.get('/home', (req, res) => {
-  res.render('home.hbs', { userData: req.session.loggedInUser });
+  res.render('home.hbs', { userData: req.session.loggedInUser, movieLogo: "/home"});
 });
 
 router.get('/movie', (req, res) => {

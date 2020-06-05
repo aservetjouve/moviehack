@@ -1,19 +1,52 @@
 @import url(https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap);
+* {
+    box-sizing: border-box;
+}
 
 body {
     font-family: 'Roboto';
     background-color: #000000;
-    margin: 0;
-    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 25px;
+}
+
+header {
+    width: 100%;
+    height: 110px;
+    display: flex;
+    justify-content: space-between;
+    color: #FFFFFF;
+    position: absolute;
+}
+
+nav {
+    margin-right: 60px;
+    color: #FFFFFF;
+    margin-top: 36px;
 }
 
 header img {
     width: 300px;
+    height: 54px;
+    margin-top: 25px;
+    margin-left: 15px;
 }
 
-footer {
-    background-color: skyblue;
+.signin-button {
+    color: #E50914;
+    margin-right: 50px;
 }
+
+.signup-button {
+    padding: 8px;
+    background-color: #E50914;
+    border-radius: 10px;
+}
+
 
 .form-bg {
     height: 100vh;
@@ -25,23 +58,28 @@ footer {
 .signin-bg {
     background-image: url("https://assets.codepen.io/3166242/sign-in.jpg");
     background-size: cover;
+    --bg-form-color : rgba(0, 0, 0, .55);
 }
 
 .signup-bg {
     background-image: url("https://assets.codepen.io/3166242/sign-up.jpeg");
     background-size: cover;
+    --bg-form-color : rgba(0, 0, 0, 0.20);
 }
+
 
 .sign-form {
     height: 500px;
     width: 400px;
-    background-color: rgba(0, 0, 0, .55);
+    background-color: var(--bg-form-color);
     margin-right: 25%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
 }
+
+
 
 .sign-form legend {
     width: 300px;
