@@ -1,0 +1,14 @@
+    <section class="form-bg signin-bg">
+        <form action="/signin" method="POST" class="sign-form">
+            <legend>Sign In</legend>
+            <input type="email" name="email"  placeholder="Email">
+            <input type="password" name="password" placeholder="Password">
+            <button type="submit" >Sign In</button>
+        </form>
+
+        {{#if errorMessage}}
+            <h6 class="error">{{errorMessage}}</h6>
+        {{/if}}
+    </section>
+
+

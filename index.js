@@ -17,6 +17,25 @@ const path = require('path');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
+
+app.use(
+  session({
+    secret: "my-secret-weapon",
+    saveUninitialized: false,
+    resave: true,
+    cookie: {
+      maxAge: 3600000, //(in milliseconds)
+    },
+    store: new MongoStore({
+      url: process.env.MONGODB_URI,
+      ttl: 3600, //(in seconds)
+      autoRemove: "disabled",
+    }),
+  })
+);
+
 // require database configuration
 require('./configs/db.config');
 

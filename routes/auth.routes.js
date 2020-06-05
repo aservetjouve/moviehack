@@ -4,7 +4,7 @@ const router = express.Router();
 
 const bcrypt = require('bcryptjs');
 
-const UserModel = require('../models/User.model')
+const UserModel = require('../models/User.model');
 
 
 router.get('/signup', (req, res) => {
@@ -67,6 +67,74 @@ router.post('/signup', (req, res) => {
         });
     });
   });
+});
+
+
+router.get('/signin', (req, res) => {
+  res.render('auth/signin.hbs');
+});
+
+router.post('/signin', (req, res) => {
+  const { email, password } = req.body;
+  if (!email || !password) {
+    res.status(500).render('auth/signin.hbs', {
+      errorMessage: 'Email and Password are required',
+    });
+    return;
+  }
+  const myRegex = new RegExp(/^[a-z0-9](?!.*?[^\na-z0-9]{2})[^\s@]+@[^\s@]+\.[^\s@]+[a-z0-9]$/);
+  if (!myRegex.test(email)) {
+    res.status(500).render('auth/signup.hbs', {
+      errorMessage: 'Email format not correct',
+    });
+    return;
+  }
+
+  // Find if the user exists in the database
+  UserModel.findOne({ email })
+    .then((userData) => {
+      bcrypt
+        .compare(password, userData.passwordHash)
+        .then((doesItMatch) => {
+          if (doesItMatch) {
+            // req.session is the special object that is available to you
+            req.session.loggedInUser = userData;
+            res.redirect('/home');
+          }
+          // if passwords do not match
+          else {
+            res.status(500).render('auth/signin.hbs', {
+              errorMessage: "Passwords don't match",
+            });
+            // return;
+          }
+        })
+        .catch(() => {
+          res.status(500).render('auth/signin.hbs', {
+            errorMessage: "Something wen't wrong!",
+          });
+          // return;
+        });
+    })
+    // throw an error if the user does not exists
+    .catch(() => {
+      res.status(500).render('auth/signin.hbs', {
+        errorMessage: "Email doesn't exist",
+      });
+      // return;
+    });
+});
+
+router.get('/home', (req, res) => {
+  res.render('home.hbs', { userData: req.session.loggedInUser });
+});
+
+router.get('/movie', (req, res) => {
+  if (req.session.loggedInUser) {
+    res.render('movie.hbs');
+  } else {
+    res.send('Access Denied');
+  }
 });
 
 module.exports = router;

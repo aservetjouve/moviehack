@@ -7,6 +7,10 @@ body {
     padding: 0;
 }
 
+header img {
+    width: 300px;
+}
+
 footer {
     background-color: skyblue;
 }
@@ -16,7 +20,15 @@ footer {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    background-image: url(/images/sign-up.jpeg);
+}
+
+.signin-bg {
+    background-image: url("https://assets.codepen.io/3166242/sign-in.jpg");
+    background-size: cover;
+}
+
+.signup-bg {
+    background-image: url("https://assets.codepen.io/3166242/sign-up.jpeg");
     background-size: cover;
 }
 
