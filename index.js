@@ -11,6 +11,9 @@ const path = require('path');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// require database configuration
+require('./configs/db.config');
+
 // Routers
 const authRouter = require('./routes/auth.routes');
 
