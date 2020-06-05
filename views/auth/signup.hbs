@@ -1,1 +1,16 @@
-<h1>SIGN UP PAGE</h1>
+    <section class="form-bg">
+        <form action="/signup" method="POST" class="sign-form">
+            <legend>Sign Up</legend>
+            <input type="text" name="firstName" placeholder="First Name">
+            <input type="text" name="lastName"  placeholder="Last Name">
+            <input type="email" name="email"  placeholder="Email">
+            <input type="password" name="password" placeholder="Password">
+            <button type="submit" >Sign Up</button>
+        </form>
+
+        {{#if errorMessage}}
+            <h6 class="error">{{errorMessage}}</h6>
+        {{/if}}
+    </section>
+
+
