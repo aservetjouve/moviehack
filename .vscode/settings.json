@@ -1,0 +1,7 @@
+{
+  "files.exclude": {
+    ".eslintrc.js": true,
+    "node_modules/": true
+  },
+  "prettier.singleQuote": true
+}

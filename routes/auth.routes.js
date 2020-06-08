@@ -6,20 +6,20 @@ const bcrypt = require('bcryptjs');
 
 const UserModel = require('../models/User.model');
 
-
 router.get('/signup', (req, res) => {
-  res.render('auth/signup.hbs', {signLabel : {message : 'Sign In', href : "/signin"},  movieLogo: "/"});
+  res.render('auth/signup.hbs', { signLabel: { message: 'Sign In', href: '/signin' }, movieLogo: '/' });
 });
 
 router.post('/signup', (req, res) => {
-  //Destructuring
-  //req is the object that contains the data from the HTTP request
+  // Destructuring
+  // req is the object that contains the data from the HTTP request
   const { firstName, lastName, email, password } = req.body;
 
   if (!firstName || !lastName || !email || !password) {
-    //Error handling catches errors that occur during async processes
+    // Error handling catches errors that occur during async processes
     res.status(500).render('auth/signup.hbs', {
-      errorMessage: 'Please enter first name, last name, email address and password',
+      errorMessage:
+        'Please enter first name, last name, email address and password',
     });
     return;
   }
@@ -49,21 +49,18 @@ router.post('/signup', (req, res) => {
     bcrypt.hash(password, salt).then((passwordHash) => {
       UserModel.create({ firstName, lastName, email, passwordHash })
         .then(() => {
-          //req.session.loggedInUser = req.body;
+          // req.session.loggedInUser = req.body;
           res.send('ACCOUNT CREATED');
         })
         .catch((err) => {
           if (err.code === 11000) {
-            res.status(500).render("auth/signup.hbs", {
-              errorMessage: "Email entered already exists!",
+            return res.status(500).render('auth/signup.hbs', {
+              errorMessage: 'Email entered already exists!',
             });
-            return;
-          } else {
-            res.status(500).render("auth/signup.hbs", {
-              errorMessage: "Something went wrong!",
-            });
-            return;
           }
+          return res.status(500).render('auth/signup.hbs', {
+            errorMessage: 'Something went wrong!',
+          });
         });
     });
   });
@@ -125,16 +122,9 @@ router.post('/signin', (req, res) => {
     });
 });
 
-router.get('/home', (req, res) => {
-  res.render('home.hbs', { userData: req.session.loggedInUser, movieLogo: "/home"});
-});
 
 router.get('/movie', (req, res) => {
-  if (req.session.loggedInUser) {
-    res.render('movie.hbs');
-  } else {
-    res.send('Access Denied');
-  }
+  
 });
 
 module.exports = router;
