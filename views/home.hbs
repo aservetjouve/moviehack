@@ -1,8 +1,97 @@
-  <h1 style="color:azure;">Top Movie Rated</h1>
-{{#each topMovieRated.results}}
-  <h4 style="color:azure;">"{{this.title}}"</h4>
-{{/each}}
-  <h1 style="color:azure;">Top TV Rated</h1>
-{{#each topTVRated.results}}
-  <h4 style="color:azure;">"{{this.name}}"</h4>
-{{/each}}
+
+<section>
+  <iframe src="https://www.youtube.com/embed/zSWdZVtXT7E?controls=0&amp;start=2" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</section>
+
+{{!-- Trending Section --}}
+<h3 style="color: white; margin-top: 50px; margin-left: 50px; width:50%">Trending</h3>
+<div class="container">
+  {{#each trendingWeek.results}}
+    {{#if this.name}}
+      {{!-- <h4 style="color:azure;">{{this.name}}</h4> --}}
+      <img src="https://image.tmdb.org/t/p/original/{{this.poster_path}}"
+      data-src="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}}" data-srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" data-loaded="true" class="poster">
+
+      
+    {{/if}}
+
+    {{#if this.title}}
+      {{!-- <h4 style="color:azure;">{{this.title}}</h4> --}}
+      <img src="https://image.tmdb.org/t/p/original/{{this.poster_path}}"
+      data-src="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}}" data-srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" data-loaded="true" class="poster">
+    {{/if}}
+  {{/each}}
+</div>
+
+
+{{!-- Popular Section --}}
+<h3 style="color: white; margin-left: 50px; width:50%">Popular Movies</h3>
+<div class="container">
+  {{#each popularMovie.results}}
+    <img src="https://image.tmdb.org/t/p/original/{{this.poster_path}}"
+      data-src="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}}" data-srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" data-loaded="true" class="poster">
+  {{/each}}
+</div>
+
+<h3 style="color: white; margin-left: 50px; width:50%">Popular TV Shows</h3>
+<div class="container">
+  {{#each popularTV.results}}
+    <img src="https://image.tmdb.org/t/p/original/{{this.poster_path}}"
+      data-src="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}}" data-srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" data-loaded="true" class="poster">
+  {{/each}}
+</div>
+
+
+{{!-- Top Rated Section --}}
+
+<h3 style="color: white; margin-left: 50px; width:50%">Top Rated Movies</h3>
+<div class="container">
+  {{#each topMovieRated.results}}
+    <img src="https://image.tmdb.org/t/p/original/{{this.poster_path}}"
+      data-src="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}}" data-srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" data-loaded="true" class="poster">
+  {{/each}}
+</div>
+
+<h3 style="color: white; margin-left: 50px; width:50%">Top Rated TV Shows</h3>
+<div class="container">
+  {{#each topTVRated.results}}
+    <img src="https://image.tmdb.org/t/p/original/{{this.poster_path}}"
+      data-src="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}}" data-srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" data-loaded="true" class="poster">
+  {{/each}}
+</div>
+
+{{!-- Action Movies --}}
+<h3 style="color: white; margin-left: 50px; width:50%">Action Movies</h3>
+<div class="container">
+  {{#each actionMovie.results}}
+    <img src="https://image.tmdb.org/t/p/original/{{this.poster_path}}"
+      data-src="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}}" data-srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" data-loaded="true" class="poster">
+  {{/each}}
+</div>
+
+{{!-- Crime TV --}}
+<h3 style="color: white; margin-left: 50px; width:50%">Crime TV Shows</h3>
+<div class="container">
+  {{#each crimeTV.results}}
+    <img src="https://image.tmdb.org/t/p/original/{{this.poster_path}}"
+      data-src="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}}" data-srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" data-loaded="true" class="poster">
+  {{/each}}
+</div>
+
+{{!-- Comedy Movies --}}
+<h3 style="color: white; margin-left: 50px; width:50%">Comedy Movies</h3>
+<div class="container">
+  {{#each comedyMovie.results}}
+    <img src="https://image.tmdb.org/t/p/original/{{this.poster_path}}"
+      data-src="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}}" data-srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" data-loaded="true" class="poster">
+  {{/each}}
+</div>
+
+{{!-- News TV --}}
+<h3 style="color: white; margin-left: 50px; width:50%">News TV</h3>
+<div class="container">
+  {{#each newsTV.results}}
+    <img src="https://image.tmdb.org/t/p/original/{{this.poster_path}}"
+      data-src="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}}" data-srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" data-loaded="true" class="poster">
+  {{/each}}
+</div>

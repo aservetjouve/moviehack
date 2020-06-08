@@ -18,8 +18,17 @@
             {{#if signLabel}}
                 <a href="{{signLabel.href}}">{{signLabel.message}}</a>
             {{/if}}
-            {{!-- {{#if homeNav}}
-            {{/if}} --}}
+            {{#if homeNav}}
+                <div class="nav-bar">
+                    <a href="/home" class="menu-button">Home</a>
+                    <a href="/movies" class="menu-button">Movies</a>
+                    <a href="/tvshows" class="menu-button">TV Shows</a>
+                    <a href="/list" class="menu-button">List</a>
+                </div>
+                <div class="right-side">
+                    <a href="/" class="log-out-button">Log out</a>
+                </div>
+            {{/if}}
         </nav>
     </header>
     {{{body}}}
