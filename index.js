@@ -45,12 +45,19 @@ require('./configs/db.config');
 const index = require('./routes/index.routes');
 const authRouter = require('./routes/auth.routes');
 const homeRouter = require('./routes/home.routes');
-
+const infoRouter = require('./routes/info.routes');
+const listRouter = require('./routes/list.routes');
 
 // Routes middleware
 app.use('/', index);
 app.use('/', authRouter);
 app.use('/', homeRouter);
+app.use('/', infoRouter);
+app.use('/', listRouter);
+
+
+// document.getElementById("target_video").muted = true or false;
+//JSDOM library
 
 
 const port = process.env.PORT || 8000;

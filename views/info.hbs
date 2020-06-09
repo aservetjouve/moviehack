@@ -1,0 +1,12 @@
+    {{#if mediaInfo.title}}
+      <h3 style="color: white; margin-top: 50px; margin-left: 50px; width:50%">MOVIE {{mediaInfo.title}}</h3>   
+    {{/if}}
+      {{#if mediaInfo.name}}
+      <h3 style="color: white; margin-top: 50px; margin-left: 50px; width:50%">TV SHOW {{mediaInfo.name}}</h3>   
+    {{/if}}
+    <form method="GET" action="/info/{{mediaType}}/{{mediaInfo.id}}/add">
+      <button type = "submit"class="mybutton" >Add to the List</button>
+    </form>
+
+{{!-- /info/movie/{{mediaInfo.id}}/add --}}
+
