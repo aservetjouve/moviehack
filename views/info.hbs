@@ -1,15 +1,20 @@
-    {{#if mediaInfo.title}}
-      <h3 style="color: white; margin-top: 50px; margin-left: 50px; width:50%">MOVIE {{mediaInfo.title}}</h3>   
-    {{/if}}
-      {{#if mediaInfo.name}}
-      <h3 style="color: white; margin-top: 50px; margin-left: 50px; width:50%">TV SHOW {{mediaInfo.name}}</h3>   
-    {{/if}}
-    
-    <iframe width="600px" height="300px" src="https://www.youtube.com/embed/{{key}}?autoplay=0&amp;controls=1&amp;rel=0&amp;modestbranding=1&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fwww.universalpictures.com&amp;widgetid=5" frameborder="0" allow="accelerometer; autoplay encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <article class="info-container">
+      <iframe width="600px" height="300px" src="https://www.youtube.com/embed/{{key}}?autoplay=0&amp;controls=1&amp;rel=0&amp;modestbranding=1&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fwww.universalpictures.com&amp;widgetid=5" frameborder="0" allow="accelerometer; autoplay encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-    <form method="GET" action="/info/{{mediaType}}/{{mediaInfo.id}}/add">
-      <button type = "submit"class="mybutton" >Add to the List</button>
-    </form>
+      <section class="info-content">
+        {{#if mediaInfo.title}}
+          <h3>MOVIE {{mediaInfo.title}}</h3>   
+        {{/if}}
+          {{#if mediaInfo.name}}
+          <h3>TV SHOW {{mediaInfo.name}}</h3>   
+        {{/if}}
+
+        <form method="GET" action="/info/{{mediaType}}/{{mediaInfo.id}}/add">
+          <button type = "submit" class="add-list-button" >Add to the List</button>
+        </form>
+      </section>
+    </article>
+    
 
 {{!-- /info/movie/{{mediaInfo.id}}/add --}}
 

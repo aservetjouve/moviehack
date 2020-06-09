@@ -136,9 +136,14 @@ header img {
     width: 300px;
     color: #FFFFFF;
     background-color: #E50914;
-    font-size: 25px;
+    font-size: 1.2em;
     border-radius: 12px;
     border-style: none;
+    transition: 5s font-size;
+}
+
+.sign-form button:hover{
+    font-size: 1.6em;
 }
 
 .error {
@@ -191,6 +196,31 @@ header img {
     background-color: #E50914;
     height: 5px;
 }
+
+/*=====INFO=====*/
+
+.info-container {
+    display: flex;
+}
+
+.info-content {
+    width: 50%;
+}
+
+.info-content h3 {
+    margin-left: 0;
+}
+
+.add-list-button {
+    padding: 8px;
+    font-size: 20px;
+    background-color: #E50914;
+    border: none;
+    border-radius: 8px;
+}
+
+
+
 /*=====FOOTER=====*/
 
 footer{
