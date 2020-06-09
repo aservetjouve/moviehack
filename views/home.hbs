@@ -40,16 +40,20 @@
 <h3 style="color: white; margin-left: 50px; width:50%">Popular Movies</h3>
 <div class="container">
   {{#each popularMovie.results}}
-    <img src="https://image.tmdb.org/t/p/original/{{this.poster_path}}"
-      data-src="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}}" data-srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" data-loaded="true" class="poster">
+    <a href="/info/movie/{{this.id}}">
+      <img src="https://image.tmdb.org/t/p/original/{{this.poster_path}}"
+        data-src="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}}" data-srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" data-loaded="true" class="poster">
+    </a>
   {{/each}}
 </div>
 
 <h3 style="color: white; margin-left: 50px; width:50%">Popular TV Shows</h3>
 <div class="container">
   {{#each popularTV.results}}
-    <img src="https://image.tmdb.org/t/p/original/{{this.poster_path}}"
-      data-src="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}}" data-srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" data-loaded="true" class="poster">
+    <a href="/info/tv/{{this.id}}"> 
+      <img src="https://image.tmdb.org/t/p/original/{{this.poster_path}}"
+        data-src="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}}" data-srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" data-loaded="true" class="poster">
+    </a>
   {{/each}}
 </div>
 
@@ -59,16 +63,20 @@
 <h3 style="color: white; margin-left: 50px; width:50%">Top Rated Movies</h3>
 <div class="container">
   {{#each topMovieRated.results}}
-    <img src="https://image.tmdb.org/t/p/original/{{this.poster_path}}"
-      data-src="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}}" data-srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" data-loaded="true" class="poster">
+    <a href="/info/movie/{{this.id}}"> 
+      <img src="https://image.tmdb.org/t/p/original/{{this.poster_path}}"
+        data-src="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}}" data-srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" data-loaded="true" class="poster">
+    </a>
   {{/each}}
 </div>
 
 <h3 style="color: white; margin-left: 50px; width:50%">Top Rated TV Shows</h3>
 <div class="container">
   {{#each topTVRated.results}}
-    <img src="https://image.tmdb.org/t/p/original/{{this.poster_path}}"
-      data-src="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}}" data-srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" data-loaded="true" class="poster">
+    <a href="/info/tv/{{this.id}}"> 
+      <img src="https://image.tmdb.org/t/p/original/{{this.poster_path}}"
+        data-src="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}}" data-srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" data-loaded="true" class="poster">
+    </a>
   {{/each}}
 </div>
 
@@ -76,8 +84,10 @@
 <h3 style="color: white; margin-left: 50px; width:50%">Action Movies</h3>
 <div class="container">
   {{#each actionMovie.results}}
-    <img src="https://image.tmdb.org/t/p/original/{{this.poster_path}}"
-      data-src="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}}" data-srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" data-loaded="true" class="poster">
+    <a href="/info/movie/{{this.id}}"> 
+      <img src="https://image.tmdb.org/t/p/original/{{this.poster_path}}"
+        data-src="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}}" data-srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" data-loaded="true" class="poster">
+    </a> 
   {{/each}}
 </div>
 
@@ -85,8 +95,10 @@
 <h3 style="color: white; margin-left: 50px; width:50%">Crime TV Shows</h3>
 <div class="container">
   {{#each crimeTV.results}}
-    <img src="https://image.tmdb.org/t/p/original/{{this.poster_path}}"
-      data-src="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}}" data-srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" data-loaded="true" class="poster">
+    <a href="/info/tv/{{this.id}}"> 
+      <img src="https://image.tmdb.org/t/p/original/{{this.poster_path}}"
+        data-src="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}}" data-srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" data-loaded="true" class="poster">
+    </a>
   {{/each}}
 </div>
 
@@ -94,8 +106,10 @@
 <h3 style="color: white; margin-left: 50px; width:50%">Comedy Movies</h3>
 <div class="container">
   {{#each comedyMovie.results}}
-    <img src="https://image.tmdb.org/t/p/original/{{this.poster_path}}"
-      data-src="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}}" data-srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" data-loaded="true" class="poster">
+    <a href="/info/movie/{{this.id}}"> 
+      <img src="https://image.tmdb.org/t/p/original/{{this.poster_path}}"
+        data-src="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}}" data-srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" data-loaded="true" class="poster">
+    </a>
   {{/each}}
 </div>
 
@@ -103,7 +117,9 @@
 <h3 style="color: white; margin-left: 50px; width:50%">News TV</h3>
 <div class="container">
   {{#each newsTV.results}}
-    <img src="https://image.tmdb.org/t/p/original/{{this.poster_path}}"
-      data-src="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}}" data-srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" data-loaded="true" class="poster">
+    <a href="/info/tv/{{this.id}}"> 
+      <img src="https://image.tmdb.org/t/p/original/{{this.poster_path}}"
+        data-src="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}}" data-srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" data-loaded="true" class="poster">
+    </a>
   {{/each}}
 </div>
