@@ -105,6 +105,7 @@ router.get('/home', (req, res) => {
       res.render('home.hbs', {
         movieLogo: '/home',
         homeNav: true,
+        footer: true,
         topMovieRated,
         topTVRated,
         popularMovie,
@@ -114,6 +115,7 @@ router.get('/home', (req, res) => {
         crimeTV,
         comedyMovie,
         newsTV
+
       });
     });
   }

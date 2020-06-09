@@ -11,6 +11,17 @@ router.get('/info/:media_type/:id', (req, res) => {
   if (req.session.loggedInUser) {
     const { id } = req.params;
     const mediaType = req.params.media_type;
+    let key; 
+
+    axios
+      .get(`https://api.themoviedb.org/3/${mediaType}/${id}/videos?api_key=${myKey}`)
+        .then((response)=>{
+          key = response.data.results[0].key
+          console.log(key)
+        })
+        .catch(()=> {
+          'Something went wrong';
+        });
     axios
       .get(`https://api.themoviedb.org/3/${mediaType}/${id}?api_key=${myKey}`)
       .then((response) => {
@@ -18,8 +29,10 @@ router.get('/info/:media_type/:id', (req, res) => {
         res.render('info.hbs', {
           movieLogo: '/home',
           homeNav: true,
+          footer: true,
           mediaInfo,
           mediaType,
+          key, 
         });
       })
       .catch(() => {
@@ -33,11 +46,10 @@ router.get('/info/:media_type/:id', (req, res) => {
 router.get('/info/:media_type/:id/add', (req, res) => {
   const { id } = req.params;
   const mediaType = req.params.media_type;
-  console.log("mediaType = ", mediaType);
   const user = req.session.loggedInUser;
   ListModel.find({ userId: user._id })
     .then((response) => {
-      if (!response) { // first time
+      if (!response.length) { // first time
         ListModel.create({ userId: user._id, arrayMedia: [{ id }] });
       } else {
         ListModel.updateOne( // list already created with at least one element
@@ -46,7 +58,8 @@ router.get('/info/:media_type/:id/add', (req, res) => {
         )
           .then(() => {
             // res.send('Worked!');
-            res.redirect(`/info/${mediaType}/${id}`);
+            //res.redirect(`/info/${mediaType}/${id}`);
+          
           })
           .catch((err) => {
             // console.log(err);
