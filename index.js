@@ -45,8 +45,8 @@ const authRouter = require('./routes/auth.routes');
 const homeRouter = require('./routes/home.routes');
 const infoRouter = require('./routes/info.routes');
 const listRouter = require('./routes/list.routes');
-const movieRouter = require('./routes/movie.routes')
-const tvShowsRouter = require('./routes/tvshows.routes')
+const movieRouter = require('./routes/movie.routes');
+const tvShowsRouter = require('./routes/tvshows.routes');
 
 // Routes middleware
 app.use('/', index);
@@ -54,11 +54,8 @@ app.use('/', authRouter);
 app.use('/', homeRouter);
 app.use('/', infoRouter);
 app.use('/', listRouter);
-app.use('/', movieRouter)
-app.use('/', tvShowsRouter)
-
-
-
+app.use('/', movieRouter);
+app.use('/', tvShowsRouter);
 
 const port = process.env.PORT || 8000;
 

@@ -1,6 +1,8 @@
 {
   "files.exclude": {
+    ".env": true,
     ".eslintrc.js": true,
+    ".gitignore": true,
     "node_modules/": true
   },
   "prettier.singleQuote": true

@@ -10,10 +10,6 @@
     display: none;
 } */
 
-/* iframe::-webkit-media-controls {
-    display: none;
-} */
-
 body {
     font-family: 'Roboto';
     background-color: #000000;
@@ -213,7 +209,7 @@ header img {
     margin-left: 0;
 }
 
-.add-list-button {
+.list-button {
     padding: 8px;
     font-size: 20px;
     background-color: #E50914;

@@ -12,7 +12,7 @@ router.get('/home', (req, res) => {
     let topTVRated;
     let popularMovie;
     let popularTV;
-    let trendingWeek; 
+    let trendingWeek;
     let actionMovie;
     let crimeTV;
     let comedyMovie;
@@ -35,7 +35,7 @@ router.get('/home', (req, res) => {
         'Something is wrong';
       });
 
-      const promisePopularMovie = axios
+    const promisePopularMovie = axios
       .get(`https://api.themoviedb.org/3/movie/popular?api_key=${myKey}`)
       .then((response) => {
         popularMovie = response.data;
@@ -60,9 +60,11 @@ router.get('/home', (req, res) => {
       .catch(() => {
         'Something is wrong';
       });
-    
-      const promiseActionMovie = axios
-      .get(`https://api.themoviedb.org/3/search/movie?api_key=${myKey}&query=action`)
+
+    const promiseActionMovie = axios
+      .get(
+        `https://api.themoviedb.org/3/search/movie?api_key=${myKey}&query=action`
+      )
       .then((response) => {
         actionMovie = response.data;
       })
@@ -70,8 +72,10 @@ router.get('/home', (req, res) => {
         'Something is wrong';
       });
 
-      const promiseCrimeTV = axios
-      .get(`https://api.themoviedb.org/3/search/tv?api_key=${myKey}&query=crime`)
+    const promiseCrimeTV = axios
+      .get(
+        `https://api.themoviedb.org/3/search/tv?api_key=${myKey}&query=crime`
+      )
       .then((response) => {
         crimeTV = response.data;
       })
@@ -79,8 +83,10 @@ router.get('/home', (req, res) => {
         'Something is wrong';
       });
 
-      const promiseComedyMovie = axios
-      .get(`https://api.themoviedb.org/3/search/movie?api_key=${myKey}&query=comedy`)
+    const promiseComedyMovie = axios
+      .get(
+        `https://api.themoviedb.org/3/search/movie?api_key=${myKey}&query=comedy`
+      )
       .then((response) => {
         comedyMovie = response.data;
       })
@@ -88,7 +94,7 @@ router.get('/home', (req, res) => {
         'Something is wrong';
       });
 
-      const promiseNewsTV = axios
+    const promiseNewsTV = axios
       .get(`https://api.themoviedb.org/3/search/tv?api_key=${myKey}&query=news`)
       .then((response) => {
         newsTV = response.data;
@@ -97,9 +103,19 @@ router.get('/home', (req, res) => {
         'Something is wrong';
       });
 
-// 
+    //
 
-    const promises = [promisetopMovieRated, promisetopTVRated, promisePopularMovie, promisePopularTV, promiseTrendingWeek, promiseActionMovie, promiseCrimeTV, promiseComedyMovie, promiseNewsTV];
+    const promises = [
+      promisetopMovieRated,
+      promisetopTVRated,
+      promisePopularMovie,
+      promisePopularTV,
+      promiseTrendingWeek,
+      promiseActionMovie,
+      promiseCrimeTV,
+      promiseComedyMovie,
+      promiseNewsTV,
+    ];
 
     Promise.allSettled(promises).then(() => {
       res.render('home.hbs', {
@@ -109,17 +125,15 @@ router.get('/home', (req, res) => {
         topMovieRated,
         topTVRated,
         popularMovie,
-        popularTV, 
-        trendingWeek, 
+        popularTV,
+        trendingWeek,
         actionMovie,
         crimeTV,
         comedyMovie,
-        newsTV
-
+        newsTV,
       });
     });
-  }
-  else {
+  } else {
     res.send('Access Denied');
   }
 });

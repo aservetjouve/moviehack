@@ -10,7 +10,7 @@ router.get('/tvshows', (req, res) => {
   if (req.session.loggedInUser) {
     let topTVRated;
     let popularTV;
-    let trendingWeek; 
+    let trendingWeek;
     let crimeTV;
     let newsTV;
     let comedyTV;
@@ -43,8 +43,10 @@ router.get('/tvshows', (req, res) => {
         'Something is wrong';
       });
 
-      const promiseComedy = axios
-      .get(`https://api.themoviedb.org/3/search/tv?api_key=${myKey}&query=comedy`)
+    const promiseComedy = axios
+      .get(
+        `https://api.themoviedb.org/3/search/tv?api_key=${myKey}&query=comedy`
+      )
       .then((response) => {
         comedyTV = response.data;
       })
@@ -52,8 +54,10 @@ router.get('/tvshows', (req, res) => {
         'Something is wrong';
       });
 
-      const promiseCrimeTV = axios
-      .get(`https://api.themoviedb.org/3/search/tv?api_key=${myKey}&query=crime`)
+    const promiseCrimeTV = axios
+      .get(
+        `https://api.themoviedb.org/3/search/tv?api_key=${myKey}&query=crime`
+      )
       .then((response) => {
         crimeTV = response.data;
       })
@@ -61,7 +65,7 @@ router.get('/tvshows', (req, res) => {
         'Something is wrong';
       });
 
-      const promiseRomanceTv = axios
+    const promiseRomanceTv = axios
       .get(`https://api.themoviedb.org/3/search/tv?api_key=${myKey}&query=love`)
       .then((response) => {
         romanceTV = response.data;
@@ -70,7 +74,7 @@ router.get('/tvshows', (req, res) => {
         'Something is wrong';
       });
 
-      const promiseNewsTV = axios
+    const promiseNewsTV = axios
       .get(`https://api.themoviedb.org/3/search/tv?api_key=${myKey}&query=news`)
       .then((response) => {
         newsTV = response.data;
@@ -79,26 +83,33 @@ router.get('/tvshows', (req, res) => {
         'Something is wrong';
       });
 
-// 
+    //
 
-    const promises = [promisetopTVRated, promisePopularTV, promiseTrendingWeek, promiseCrimeTV, promiseNewsTV, promiseComedy, promiseRomanceTv];
+    const promises = [
+      promisetopTVRated,
+      promisePopularTV,
+      promiseTrendingWeek,
+      promiseCrimeTV,
+      promiseNewsTV,
+      promiseComedy,
+      promiseRomanceTv,
+    ];
 
     Promise.allSettled(promises).then(() => {
       res.render('tvshows.hbs', {
         movieLogo: '/home',
         homeNav: true,
         footer: true,
-        topTVRated,        
-        popularTV, 
-        trendingWeek,         
+        topTVRated,
+        popularTV,
+        trendingWeek,
         crimeTV,
         newsTV,
         comedyTV,
-        romanceTV
+        romanceTV,
       });
     });
-  }
-  else {
+  } else {
     res.send('Access Denied');
   }
 });

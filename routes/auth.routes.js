@@ -7,7 +7,10 @@ const bcrypt = require('bcryptjs');
 const UserModel = require('../models/User.model');
 
 router.get('/signup', (req, res) => {
-  res.render('auth/signup.hbs', { signLabel: { message: 'Sign In', href: '/signin' }, movieLogo: '/' });
+  res.render('auth/signup.hbs', {
+    signLabel: { message: 'Sign In', href: '/signin' },
+    movieLogo: '/',
+  });
 });
 
 router.post('/signup', (req, res) => {
@@ -31,7 +34,7 @@ router.post('/signup', (req, res) => {
     res.status(500).render('auth/signup.hbs', {
       errorMessage: 'Email format not correct',
       signLabel: { message: 'Sign In', href: '/signin' },
-      movieLogo: '/'
+      movieLogo: '/',
     });
     return;
   }
@@ -44,7 +47,7 @@ router.post('/signup', (req, res) => {
       errorMessage:
         'Password needs to have 8 characters, a number, an Uppercase alphabet and one special character from [!@#$%^&*]',
       signLabel: { message: 'Sign In', href: '/signin' },
-      movieLogo: '/'
+      movieLogo: '/',
     });
     return;
   }
@@ -61,22 +64,24 @@ router.post('/signup', (req, res) => {
             return res.status(500).render('auth/signup.hbs', {
               errorMessage: 'Email entered already exists!',
               signLabel: { message: 'Sign In', href: '/signin' },
-              movieLogo: '/'
+              movieLogo: '/',
             });
           }
           return res.status(500).render('auth/signup.hbs', {
             errorMessage: 'Something went wrong!',
             signLabel: { message: 'Sign In', href: '/signin' },
-            movieLogo: '/'
+            movieLogo: '/',
           });
         });
     });
   });
 });
 
-
 router.get('/signin', (req, res) => {
-  res.render('auth/signin.hbs', {signLabel : {message : 'Sign Up', href : "/signup"},  movieLogo: "/"});
+  res.render('auth/signin.hbs', {
+    signLabel: { message: 'Sign Up', href: '/signup' },
+    movieLogo: '/',
+  });
 });
 
 router.post('/signin', (req, res) => {
@@ -85,16 +90,18 @@ router.post('/signin', (req, res) => {
     res.status(500).render('auth/signin.hbs', {
       errorMessage: 'Email and Password are required',
       signLabel: { message: 'Sign Up', href: '/signup' },
-      movieLogo: '/'
+      movieLogo: '/',
     });
     return;
   }
-  const myRegex = new RegExp(/^[a-z0-9](?!.*?[^\na-z0-9]{2})[^\s@]+@[^\s@]+\.[^\s@]+[a-z0-9]$/);
+  const myRegex = new RegExp(
+    /^[a-z0-9](?!.*?[^\na-z0-9]{2})[^\s@]+@[^\s@]+\.[^\s@]+[a-z0-9]$/
+  );
   if (!myRegex.test(email)) {
     res.status(500).render('auth/signup.hbs', {
       errorMessage: 'Email format not correct',
       signLabel: { message: 'Sign Up', href: '/signup' },
-      movieLogo: '/'
+      movieLogo: '/',
     });
     return;
   }
@@ -115,7 +122,7 @@ router.post('/signin', (req, res) => {
             res.status(500).render('auth/signin.hbs', {
               errorMessage: "Passwords don't match",
               signLabel: { message: 'Sign Up', href: '/signup' },
-              movieLogo: '/'
+              movieLogo: '/',
             });
             // return;
           }
@@ -124,7 +131,7 @@ router.post('/signin', (req, res) => {
           res.status(500).render('auth/signin.hbs', {
             errorMessage: "Something wen't wrong!",
             signLabel: { message: 'Sign Up', href: '/signup' },
-            movieLogo: '/'
+            movieLogo: '/',
           });
           // return;
         });
@@ -134,15 +141,10 @@ router.post('/signin', (req, res) => {
       res.status(500).render('auth/signin.hbs', {
         errorMessage: "Email doesn't exist",
         signLabel: { message: 'Sign Up', href: '/signup' },
-        movieLogo: '/'
+        movieLogo: '/',
       });
       // return;
     });
-});
-
-
-router.get('/movie', (req, res) => {
-  
 });
 
 module.exports = router;

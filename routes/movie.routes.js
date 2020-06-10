@@ -10,7 +10,7 @@ router.get('/movies', (req, res) => {
   if (req.session.loggedInUser) {
     let topMovieRated;
     let popularMovie;
-    let trendingWeek; 
+    let trendingWeek;
     let actionMovie;
     let comedyMovie;
 
@@ -23,7 +23,7 @@ router.get('/movies', (req, res) => {
         'Something is wrong';
       });
 
-      const promisePopularMovie = axios
+    const promisePopularMovie = axios
       .get(`https://api.themoviedb.org/3/movie/popular?api_key=${myKey}`)
       .then((response) => {
         popularMovie = response.data;
@@ -40,9 +40,11 @@ router.get('/movies', (req, res) => {
       .catch(() => {
         'Something is wrong';
       });
-    
-      const promiseActionMovie = axios
-      .get(`https://api.themoviedb.org/3/search/movie?api_key=${myKey}&query=action`)
+
+    const promiseActionMovie = axios
+      .get(
+        `https://api.themoviedb.org/3/search/movie?api_key=${myKey}&query=action`
+      )
       .then((response) => {
         actionMovie = response.data;
       })
@@ -50,8 +52,10 @@ router.get('/movies', (req, res) => {
         'Something is wrong';
       });
 
-      const promiseComedyMovie = axios
-      .get(`https://api.themoviedb.org/3/search/movie?api_key=${myKey}&query=comedy`)
+    const promiseComedyMovie = axios
+      .get(
+        `https://api.themoviedb.org/3/search/movie?api_key=${myKey}&query=comedy`
+      )
       .then((response) => {
         comedyMovie = response.data;
       })
@@ -59,23 +63,27 @@ router.get('/movies', (req, res) => {
         'Something is wrong';
       });
 
-
-    const promises = [promisetopMovieRated, promisePopularMovie, promiseTrendingWeek, promiseActionMovie, promiseComedyMovie];
+    const promises = [
+      promisetopMovieRated,
+      promisePopularMovie,
+      promiseTrendingWeek,
+      promiseActionMovie,
+      promiseComedyMovie,
+    ];
 
     Promise.allSettled(promises).then(() => {
       res.render('movie.hbs', {
         movieLogo: '/home',
         homeNav: true,
         footer: true,
-        topMovieRated,        
-        popularMovie,        
-        trendingWeek, 
-        actionMovie,        
+        topMovieRated,
+        popularMovie,
+        trendingWeek,
+        actionMovie,
         comedyMovie,
       });
     });
-  }
-  else {
+  } else {
     res.send('Access Denied');
   }
 });
