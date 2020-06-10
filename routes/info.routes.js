@@ -26,7 +26,6 @@ router.get('/info/:media_type/:id', (req, res) => {
     axios
       .get(`https://api.themoviedb.org/3/${mediaType}/${id}?api_key=${myKey}`)
       .then((response) => {
-        console.log(ListModel);
         ListModel.findOne({ userId: req.session.loggedInUser._id }).then(
           (listResponse) => {
             const mediaInfo = response.data;
@@ -57,7 +56,7 @@ router.get('/info/:media_type/:id', (req, res) => {
         'Something is wrong';
       });
   } else {
-    res.send('Access Denied');
+    res.render('access-denied.hbs');
   }
 });
 
@@ -79,7 +78,6 @@ router.get('/info/:media_type/:id/add', (req, res) => {
             res.redirect(`/info/${mediaType}/${id}`);
           })
           .catch((err) => {
-            console.log(err);
             res.send('Crashed');
           });
       } else res.redirect(`/info/${mediaType}/${id}`);
@@ -98,7 +96,6 @@ router.get('/info/:media_type/:id/delete', (req, res) => {
       let moviesArray = JSON.parse(
         JSON.stringify(listResponse[0].arrayMediasID)
       );
-      console.log(moviesArray);
 
       moviesArray.splice(moviesArray.indexOf(id), 1);
       ListModel.findOneAndUpdate(
@@ -109,7 +106,6 @@ router.get('/info/:media_type/:id/delete', (req, res) => {
           res.redirect(`/info/${mediaType}/${id}`);
         })
         .catch((err) => {
-          console.log(err);
           res.send('Crashed');
         });
     })

@@ -134,7 +134,7 @@ router.get('/home', (req, res) => {
       });
     });
   } else {
-    res.send('Access Denied');
+    res.render('access-denied.hbs');
   }
 });
 

@@ -7,7 +7,7 @@ const ListModel = require('../models/List.model');
 router.get('/list', (req, res) => {
   ListModel.find()
     .then((media)=> {
-      console.log(media);
+      res.render('list.hbs');
     })
     .catch(() => {
       res.send('Something went wrong');
