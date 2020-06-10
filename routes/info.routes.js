@@ -58,7 +58,7 @@ router.get('/info/:media_type/:id/add', (req, res) => {
         )
           .then(() => {
             // res.send('Worked!');
-            //res.redirect(`/info/${mediaType}/${id}`);
+            res.redirect(`/info/${mediaType}/${id}`);
           
           })
           .catch((err) => {

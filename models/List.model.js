@@ -11,6 +11,12 @@ const listSchema = new Schema(
       id: String,
       // unique: true,
     }],
+    //arrayMedia: {
+      // type: String, 
+      // id: true, 
+      // unique: true,
+     //}
+    // arrayMedia[id]
   },
   { timestamps: true },
 );
