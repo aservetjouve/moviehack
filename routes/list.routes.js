@@ -39,7 +39,12 @@ router.get('/list', (req, res) => {
       Promise.allSettled(promises)
         .then(()=>{
           console.log('list outside ',list)
-          res.render('list.hbs', { list });
+          res.render('list.hbs', { 
+            movieLogo: '/home',
+              homeNav: true,
+              footer: true,
+              list,
+           });
         })
     }, 1000)
 });

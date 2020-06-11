@@ -1,8 +1,23 @@
-<section class="info-content">
+<h3 style="color: white; margin-top: 50px; margin-left: 50px; width:50%">Your list :</h3>
+<div class="container">
   {{#each list}}
-    <a href="/info/movie/{{this.id}}"> 
-      <img src="https://image.tmdb.org/t/p/original/{{this.backdrop_path}}"
-        data-src="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.backdrop_path}}" data-srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.backdrop_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.backdrop_path}} 2x" srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.backdrop_path:}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.backdrop_path}} 2x" data-loaded="true" class="poster" onerror="this.parentNode.removeChild(this)">
+    {{#if this.name}}
+      {{!-- <h4 style="color:azure;">{{this.name}}</h4> --}}
+      <a href="/info/tv/{{this.id}}">
+        <img src="https://image.tmdb.org/t/p/original/{{this.poster_path}}"
+        data-src="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}}" data-srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" data-loaded="true" class="poster" onerror="this.parentNode.removeChild(this)">
+      </a>   
+    {{/if}}
+    {{#if this.title}}
+      {{!-- <h4 style="color:azure;">{{this.title}}</h4> --}}
+      <a href="/info/movie/{{this.id}}">
+      <img src="https://image.tmdb.org/t/p/original/{{this.poster_path}}"
+      data-src="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}}" data-srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" data-loaded="true" class="poster" onerror="this.parentNode.removeChild(this)">
     </a>
-  {{/each}}
-</section>
+    {{/if}}
+
+    {{else}}
+      <h1>This is empty</h1>
+  {{/each }}
+</div>
+
