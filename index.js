@@ -4,6 +4,8 @@ const express = require('express');
 
 const app = express();
 
+const startupDebugger = require('debug')('app:startup');
+
 // To be able parse post request information
 const bodyParser = require('body-parser');
 
@@ -59,4 +61,4 @@ app.use('/', tvShowsRouter);
 
 const port = process.env.PORT || 8000;
 
-app.listen(port, () => console.log(`\n == API on port ${port} ==\n`));
+app.listen(port, () => startupDebugger(`\n == API on port ${port} ==\n`));

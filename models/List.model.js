@@ -7,10 +7,10 @@ const listSchema = new Schema(
       ref: 'User',
       required: true,
     },
-    arrayMediasID: [
+    arrayMedia: [
       {
-        type: String,
-        unique: true,
+        id: String,
+        mediaType: String,
       },
     ],
   },
