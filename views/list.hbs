@@ -1,5 +1,8 @@
 <section class="info-content">
-  {{#each mediaInfo}}
-    <h3>MOVIE {{mediaInfo.title}}</h3>
+  {{#each list}}
+    <a href="/info/movie/{{this.id}}"> 
+      <img src="https://image.tmdb.org/t/p/original/{{this.backdrop_path}}"
+        data-src="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.backdrop_path}}" data-srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.backdrop_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.backdrop_path}} 2x" srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.backdrop_path:}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.backdrop_path}} 2x" data-loaded="true" class="poster" onerror="this.parentNode.removeChild(this)">
+    </a>
   {{/each}}
 </section>

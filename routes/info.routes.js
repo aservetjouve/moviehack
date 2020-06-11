@@ -69,8 +69,7 @@ router.get('/info/:media_type/:id/add', (req, res) => {
     const user = req.session.loggedInUser;
     ListModel.find({ userId: user._id })
       .then((response) => {
-        // console.log('response from /info/:media_type/:id/add =>', response);
-        const moviesIDArray = [];
+        let moviesIDArray = [];
         for (const obj of response[0].arrayMedia) {
           moviesIDArray.push(obj.id);
         }
@@ -91,7 +90,10 @@ router.get('/info/:media_type/:id/add', (req, res) => {
       })
       .catch(() => {
         // TODO: Maybe the first time that we create the list should be when the user sign up
-        ListModel.create({ userId: user._id, arrayMedia: [{ id, mediaType }] });
+        ListModel.create({ userId: user._id, arrayMedia: [{ id, mediaType }] })
+          .then(()=>{
+            res.redirect(`/info/${mediaType}/${id}`);
+          })
       });
   } else {
     res.render('access-denied.hbs');

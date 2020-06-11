@@ -10,26 +10,40 @@ const myKey = process.env.TMDb_KEY;
 
 router.get('/list', (req, res) => {
   const list = [];
-  ListModel.find()
+  let promises = [];
+  const user = req.session.loggedInUser;
+  ListModel.find({ userId: user._id })
     .then((media) => {
       for (const obj of media[0].arrayMedia) {
-        const str = `https://api.themoviedb.org/3/${obj.mediaType}/${obj.id}?api_key=${myKey}`;
-        axios
+        
+         promises += axios
           .get(
             `https://api.themoviedb.org/3/${obj.mediaType}/${obj.id}?api_key=${myKey}`
           )
           .then((response) => {
             list.push(response.data);
+            // console.log('inside axios ',list)
           })
           .catch(() => {
-            res.send('Something went wrong');
+            res.send('Something went wrong 1');
           });
+          console.log('promises ', promises)
       }
-      res.render('list.hbs', { list });
+      
     })
     .catch(() => {
-      res.send('Something went wrong');
+      res.send('Something went wrong 2');
     });
+
+    setTimeout(function (){
+      Promise.allSettled(promises)
+        .then(()=>{
+          console.log('list outside ',list)
+          res.render('list.hbs', { list });
+        })
+    }, 1000)
 });
 
 module.exports = router;
+
+
