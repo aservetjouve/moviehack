@@ -1,4 +1,4 @@
-<section class="target_video">
+<section class="target_video fade-in">
   <video width=100% height=25% controls poster="https://i.ytimg.com/vi/jLK2Q-qykfc/maxresdefault.jpg">      
     <source src="https://movietrailers.apple.com/movies/universal/you-should-have-left/you-should-have-left-trailer-1_a720p.m4v?t=5" type="video/mp4"> <!-- type="video/mp4" -->  
   </video>
@@ -6,18 +6,16 @@
 </section>
 
 {{!-- Trending Section --}}
-<h3 style="color: white; margin-top: 50px; margin-left: 50px; width:50%">Trending</h3>
-<div class="container">
+<h3 class="container-first-title">Trending</h3>
+<div class="container fade-in">
   {{#each trendingWeek.results}}
     {{#if this.name}}
-      {{!-- <h4 style="color:azure;">{{this.name}}</h4> --}}
       <a href="/info/{{this.media_type}}/{{this.id}}">
         <img src="https://image.tmdb.org/t/p/original/{{this.poster_path}}"
         data-src="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}}" data-srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" data-loaded="true" class="poster" onerror="this.parentNode.removeChild(this)">
       </a>   
     {{/if}}
     {{#if this.title}}
-      {{!-- <h4 style="color:azure;">{{this.title}}</h4> --}}
       <a href="/info/{{this.media_type}}/{{this.id}}">
       <img src="https://image.tmdb.org/t/p/original/{{this.poster_path}}"
       data-src="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}}" data-srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" srcset="https://image.tmdb.org/t/p/w220_and_h330_face/{{this.poster_path}} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/{{this.poster_path}} 2x" data-loaded="true" class="poster" onerror="this.parentNode.removeChild(this)">
@@ -28,8 +26,8 @@
 
 
 {{!-- Popular Section --}}
-<h3 style="color: white; margin-left: 50px; width:50%">Popular Movies</h3>
-<div class="container">
+<h3 class="container-title">Popular Movies</h3>
+<div class="container fade-in">
   {{#each popularMovie.results}}
     <a href="/info/movie/{{this.id}}">
       <img src="https://image.tmdb.org/t/p/original/{{this.poster_path}}"
@@ -38,8 +36,8 @@
   {{/each}}
 </div>
 
-<h3 style="color: white; margin-left: 50px; width:50%">Popular TV Shows</h3>
-<div class="container">
+<h3 class="container-title">Popular TV Shows</h3>
+<div class="container fade-in">
   {{#each popularTV.results}}
     <a href="/info/tv/{{this.id}}"> 
       <img src="https://image.tmdb.org/t/p/original/{{this.poster_path}}"
@@ -51,8 +49,8 @@
 
 {{!-- Top Rated Section --}}
 
-<h3 style="color: white; margin-left: 50px; width:50%">Top Rated Movies</h3>
-<div class="container">
+<h3 class="container-title">Top Rated Movies</h3>
+<div class="container fade-in">
   {{#each topMovieRated.results}}
     <a href="/info/movie/{{this.id}}"> 
       <img src="https://image.tmdb.org/t/p/original/{{this.poster_path}}"
@@ -61,8 +59,8 @@
   {{/each}}
 </div>
 
-<h3 style="color: white; margin-left: 50px; width:50%">Top Rated TV Shows</h3>
-<div class="container">
+<h3 class="container-title">Top Rated TV Shows</h3>
+<div class="container fade-in">
   {{#each topTVRated.results}}
     <a href="/info/tv/{{this.id}}"> 
       <img src="https://image.tmdb.org/t/p/original/{{this.poster_path}}"
@@ -72,8 +70,8 @@
 </div>
 
 {{!-- Action Movies --}}
-<h3 style="color: white; margin-left: 50px; width:50%">Action Movies</h3>
-<div class="container">
+<h3 class="container-title">Action Movies</h3>
+<div class="container fade-in">
   {{#each actionMovie.results}}
     <a href="/info/movie/{{this.id}}"> 
       <img src="https://image.tmdb.org/t/p/original/{{this.poster_path}}"
@@ -83,8 +81,8 @@
 </div>
 
 {{!-- Crime TV --}}
-<h3 style="color: white; margin-left: 50px; width:50%">Crime TV Shows</h3>
-<div class="container">
+<h3 class="container-title">Crime TV Shows</h3>
+<div class="container fade-in">
   {{#each crimeTV.results}}
     <a href="/info/tv/{{this.id}}"> 
       <img src="https://image.tmdb.org/t/p/original/{{this.poster_path}}"
@@ -94,8 +92,8 @@
 </div>
 
 {{!-- Comedy Movies --}}
-<h3 style="color: white; margin-left: 50px; width:50%">Comedy Movies</h3>
-<div class="container">
+<h3 class="container-title">Comedy Movies</h3>
+<div class="container fade-in">
   {{#each comedyMovie.results}}
     <a href="/info/movie/{{this.id}}"> 
       <img src="https://image.tmdb.org/t/p/original/{{this.poster_path}}"
@@ -105,8 +103,8 @@
 </div>
 
 {{!-- News TV --}}
-<h3 style="color: white; margin-left: 50px; width:50%">News TV</h3>
-<div class="container">
+<h3 class="container-title">News TV</h3>
+<div class="container fade-in">
   {{#each newsTV.results}}
     <a href="/info/tv/{{this.id}}"> 
       <img src="https://image.tmdb.org/t/p/original/{{this.poster_path}}"
@@ -116,10 +114,10 @@
 </div>
 
 <script>
-  let imgs = document.getElementsByTagName('img')
-    for(let i=0,j=imgs.length;i<j;i++){
-      imgs[i].onerror = (e) => {
+    var imgs = document.getElementsByTagName('img')
+    for(var i=0,j=imgs.length;i<j;i++){
+        imgs[i].onerror = function(e){
         this.parentNode.removeChild(this);
     }
-  }
+}
 </script>

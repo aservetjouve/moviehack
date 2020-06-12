@@ -22,12 +22,10 @@ router.get('/list', (req, res) => {
           )
           .then((response) => {
             list.push(response.data);
-            // console.log('inside axios ',list)
           })
           .catch(() => {
             res.send('Something went wrong 1');
           });
-          console.log('promises ', promises)
       }
       
     })
@@ -38,7 +36,6 @@ router.get('/list', (req, res) => {
     setTimeout(function (){
       Promise.allSettled(promises)
         .then(()=>{
-          console.log('list outside ',list)
           res.render('list.hbs', { 
             movieLogo: '/home',
               homeNav: true,

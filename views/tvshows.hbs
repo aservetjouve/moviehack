@@ -1,13 +1,13 @@
-<section class="target_video">
+<section class="target_video fade-in">
   <video width=100% height=25% controls poster="https://i.ytimg.com/vi/qQkLW7P8By0/maxresdefault.jpg">
     <source
       src="https://movietrailers.apple.com/movies/universal/you-should-have-left/you-should-have-left-trailer-1_a720p.m4v?t=5"
-      type="video/mp4"> <!-- type="video/mp4" -->
+      type="video/mp4">
   </video>
 </section>
 
 {{!-- Trending Section --}}
-<h3 style="color: white; margin-top: 50px; margin-left: 50px; width:50%">Trending</h3>
+<h3 class="container-first-title">Trending</h3>
 <div class="container">
   {{#each trendingWeek.results}}
     {{#if this.name}}
@@ -22,7 +22,7 @@
 
 {{!-- Popular Section --}}
 
-<h3 style="color: white; margin-left: 50px; width:50%">Popular</h3>
+<h3 class="container-title">Popular</h3>
 <div class="container">
   {{#each popularTV.results}}
     <a href="/info/tv/{{this.id}}"> 
@@ -34,7 +34,7 @@
 
 
 {{!-- Top Rated Section --}}
-<h3 style="color: white; margin-left: 50px; width:50%">Top Rated</h3>
+<h3 class="container-title">Top Rated</h3>
 <div class="container">
   {{#each topTVRated.results}}
     <a href="/info/tv/{{this.id}}"> 
@@ -46,7 +46,7 @@
 
 
 {{!-- Comedy TV --}}
-<h3 style="color: white; margin-left: 50px; width:50%">Comedy</h3>
+<h3 class="container-title">Comedy</h3>
 <div class="container">
   {{#each comedyTV.results}}
     <a href="/info/tv/{{this.id}}"> 
@@ -58,7 +58,7 @@
 
 
 {{!-- Romance TV --}}
-<h3 style="color: white; margin-left: 50px; width:50%">Romance</h3>
+<h3 class="container-title">Romance</h3>
 <div class="container">
   {{#each romanceTV.results}}
     <a href="/info/tv/{{this.id}}"> 
@@ -69,7 +69,7 @@
 </div>
 
 {{!-- Crime TV --}}
-<h3 style="color: white; margin-left: 50px; width:50%">Crime</h3>
+<h3 class="container-title">Crime</h3>
 <div class="container">
   {{#each crimeTV.results}}
     <a href="/info/tv/{{this.id}}"> 
@@ -80,7 +80,7 @@
 </div>
 
 {{!-- News TV --}}
-<h3 style="color: white; margin-left: 50px; width:50%">News</h3>
+<h3 class="container-title">News</h3>
 <div class="container">
   {{#each newsTV.results}}
     <a href="/info/tv/{{this.id}}"> 

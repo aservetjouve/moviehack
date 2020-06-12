@@ -6,20 +6,34 @@
 
   <section class="info-content">
     {{#if mediaInfo.title}}
-    <h3>MOVIE {{mediaInfo.title}}</h3>
+      <h3 class="info-title">{{mediaInfo.title}}</h3>
+      <p class="under-title">{{mediaInfo.release_date}}</p>
     {{/if}}
     {{#if mediaInfo.name}}
-    <h3>TV SHOW {{mediaInfo.name}}</h3>
+      <h3 class="info-title">{{mediaInfo.name}}</h3>
+      <p class="under-title">{{mediaInfo.first_air_date}} | {{mediaInfo.number_of_episodes}} Episodes </p>
+      <p>{{mediaInfo.created_by.name}}</p>
     {{/if}}
+    <p class="overview">{{mediaInfo.overview}}</p>
+    <p class="rated">Rated {{mediaInfo.vote_average}}/10 by {{mediaInfo.vote_count}} critics</p>
 
+    <div class="info-buttons">
     {{#if mediaInfo.isMovieAdded}}
     <form method="GET" action="/info/{{mediaType}}/{{mediaInfo.id}}/delete">
-      <button type="submit" class="list-button">Delete from the List</button>
+      <button type="submit" class="list-button-remove">Delete from the List</button>
     </form>
     {{else}}
     <form method="GET" action="/info/{{mediaType}}/{{mediaInfo.id}}/add">
-      <button type="submit" class="list-button">Add to the List</button>
+      <button type="submit" class="list-button-add">Add to the List</button>
     </form>
     {{/if}}
+    {{#if mediaInfo.homepage}}
+    <a href="{{mediaInfo.homepage}}" class="watch-here">Watch Here</a>
+    {{else}}
+    <a class="not-here">Not available 😢</a>
+    {{/if}}
+
+
+    </div>
   </section>
 </article>

@@ -112,7 +112,6 @@ router.get('/info/:media_type/:id/delete', (req, res) => {
         moviesIDArray.push(obj.id);
       }
       moviesArray.splice(moviesIDArray.indexOf(id), 1);
-      console.log('moviesArray', moviesArray);
       ListModel.findOneAndUpdate(
         { userId: req.session.loggedInUser._id },
         { $set: { arrayMedia: moviesArray } },

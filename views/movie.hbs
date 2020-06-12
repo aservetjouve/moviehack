@@ -1,11 +1,11 @@
-<section class="target_video">
+<section class="target_video fade-in">
   <video width=100% height=25% controls poster="https://i.ytimg.com/vi/lOi2MofvxrU/maxresdefault.jpg">      
       <source src="https://movietrailers.apple.com/movies/universal/you-should-have-left/you-should-have-left-trailer-1_a720p.m4v?t=5" type="video/mp4"> <!-- type="video/mp4" -->  
   </video>
 </section>
 
 {{!-- Trending Section --}}
-<h3 style="color: white; margin-top: 50px; margin-left: 50px; width:50%">Trending</h3>
+<h3 class="container-first-title">Trending</h3>
 <div class="container">
   {{#each trendingWeek.results}}
     {{#if this.title}}
@@ -19,7 +19,7 @@
 
 
 {{!-- Popular Section --}}
-<h3 style="color: white; margin-left: 50px; width:50%">Popular Movies</h3>
+<h3 class="container-title">Popular Movies</h3>
 <div class="container">
   {{#each popularMovie.results}}
     <a href="/info/movie/{{this.id}}">
@@ -33,7 +33,7 @@
 
 {{!-- Top Rated Section --}}
 
-<h3 style="color: white; margin-left: 50px; width:50%">Top Rated Movies</h3>
+<h3 class="container-title">Top Rated Movies</h3>
 <div class="container">
   {{#each topMovieRated.results}}
     <a href="/info/movie/{{this.id}}"> 
@@ -45,7 +45,7 @@
 
 
 {{!-- Action Movies --}}
-<h3 style="color: white; margin-left: 50px; width:50%">Action Movies</h3>
+<h3 class="container-title">Action Movies</h3>
 <div class="container">
   {{#each actionMovie.results}}
     <a href="/info/movie/{{this.id}}"> 
@@ -56,7 +56,7 @@
 </div>
 
 {{!-- Comedy Movies --}}
-<h3 style="color: white; margin-left: 50px; width:50%">Comedy Movies</h3>
+<h3 class="container-title">Comedy Movies</h3>
 <div class="container">
   {{#each comedyMovie.results}}
     <a href="/info/movie/{{this.id}}"> 
