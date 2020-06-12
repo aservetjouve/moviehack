@@ -318,3 +318,32 @@ footer a{
 .github:hover {
     color: red;
 }
+
+.first-section {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 100px;
+}
+
+p {
+    color: white;
+    font-size: large;
+    padding: 0;
+    margin: 0;
+}
+
+.second-section {
+    padding-bottom: 100px;
+}
+
+.second-section h2 {
+    padding-top: 100px;
+    text-align: center;
+}
+
+.second-section img {
+    padding-top: 50px;
+    display: block;
+    width: auto;
+    margin: auto;
+}
